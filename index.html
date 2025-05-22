@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeomas | Innovative Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  
+</head>
+<body>
+  <header>
+    <img class="logo" src="/jeomas main logo.png" alt="">
+    <h1>JEOMAS INTEGRATED Services</h1>
+    
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Where vision meets structure</h2>
+    <p>We specialize in delivering end-to-end construction and design solutions that combine functionality, aesthetics, and structural integrity. Our expertise spans residential, commercial, and industrial projects—from concept development and architectural design to high-quality construction and project management. With a commitment to innovation, craftsmanship, and client satisfaction, we turn visions into lasting, impactful spaces.
+
+</p>
+  
+In just 10 years, our team, with the spirit of innovation at the core, is carving a niche for herself to become the industry's benchmark for quality, timely delivery, robust engineering in-house research, uncompromising business ethics and the unswerving commitment to timeless values and total transparency in every aspect of its business. These exceptional attributes propagates JEOMAS INTEGRATED SERVICES LTD as one of Nigeria's preferred real estate brands in Rivers State.</p>
+  </section>
+
+  <section class="services" id="services">
+    <h3>Our Services</h3>
+    <div class="services-grid">
+      <div class="service-card">
+        <h4>Landscaping And Interior</h4>
+        <p>
+We design and craft cohesive indoor and outdoor environments that are both functional and visually compelling. From lush, inviting landscapes to elegant, practical interiors, we create harmonious spaces that elevate everyday living and enhance property value</p>
+      </div>
+      <div class="service-card">
+        <h4>Civil And Sturctural Engineering</h4>
+        <p>Our engineering expertise ensures that every project is built on a solid foundation—literally and figuratively. We provide safe, efficient, and code-compliant structural solutions that support the integrity and longevity of every build.</p>
+      </div>
+      <div class="service-card">
+        <h4>Architecture</h4>
+        <p>We offer architectural design that balances creativity, practicality, and sustainability. Our designs are tailored to client needs and site conditions, resulting in spaces that are both visionary and buildable.
+
+</section>
+
+  <section class="about" id="about">
+    <h3>About Us</h3>
+    <p>We are real estate company with primary engagement in building designs and Construction, Our interests cut across Roads & Drainage construction, residential and commercial properties development. We have successfully provided total design, engineering and procurement solutions to quite a number of Government agencies, multi-nationals, corporate and private clients.
+</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h3>Contact Us</h3>
+    <form action="contact.php" method="POST" id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div id="formResponse" style="margin-top: 1rem;"></div>
+  </section>
+  <footer>
+    <p>
+        For further inquires;
+        <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=jeomasintegratedservicesltd@gmail.com&su" 
+  target="_blank"
+  class="email-button"
+>
+ via Email
+</a>
+
+     <p>  <a href="tel:+2348065373719" style="color: blue; text-decoration: underline;"></p>
+  Call Us: +2348065373719
+</a>
+
+<p> &copy; 2025 Jeomas. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const revealSections = document.querySelectorAll('.about, .services, .contact');
+    window.addEventListener('scroll', () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      revealSections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('reveal');
+        }
+      });
+    });
+
+    const contactForm = document.getElementById('contactForm');
+    const formResponse = document.getElementById('formResponse');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+
+      fetch('contact.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(res => res.text())
+        .then(data => {
+          formResponse.innerText = data;
+          contactForm.reset();
+        })
+        .catch(err => {
+          formResponse.innerText = "There was an error sending your message. Please try again later.";
+        });
+    });
+  </script>
+  <p>
+    <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=yourname@example.com&su=Hello&body=I%20have%20a%20question" 
+  target="_blank"
+>
+</a>
+
+
+</body>
+</html>
